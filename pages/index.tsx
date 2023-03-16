@@ -64,7 +64,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="http://hirewave.co/" />
-        <meta property="og:image" content="./socialCard.png" />
+        <meta property="og:image" content="https://imgur.com/a/ledUnxQ" />
         <meta name="twitter:title" content="Hirewave " />
         <meta property="og:url" content="http://hirewave.co" />
         <meta
