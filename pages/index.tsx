@@ -76,8 +76,6 @@ export default function Home() {
         <meta name="twitter:site" content="@ryanharaki_" />
         <meta property="og:og:site_name" content="Hirewave." />
         <meta name="twitter:image:alt" content="Hirewave Twitter Card" />
-
-        <title>Matrice | Sell your digital products</title>
       </Head>
       <main>
         {/* HERO */}
