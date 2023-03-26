@@ -128,7 +128,7 @@ export default function Home() {
             </div>
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
               <a
-                href="#"
+                href="/login"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Log in <span aria-hidden="true">&rarr;</span>
@@ -372,7 +372,6 @@ export default function Home() {
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Grow your team faster.
                   <br />
-                  Join the Waitlist.
                 </h2>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Hirewave simplifies the hiring process for startups so you can
@@ -380,10 +379,10 @@ export default function Home() {
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                   <a
-                    href="https://tally.so/r/nPpXz0"
+                    href="/signup"
                     className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
-                    Join the Waitlist
+                    Get Started
                   </a>
                 </div>
               </div>

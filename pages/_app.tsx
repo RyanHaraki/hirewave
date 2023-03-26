@@ -1,11 +1,14 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <ClerkProvider frontendApi={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </ClerkProvider>
   );
 }
