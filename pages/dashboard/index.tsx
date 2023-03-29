@@ -2,32 +2,58 @@ import React from "react";
 import {
   SignedIn,
   SignedOut,
-  SignInButton,
   UserButton,
   useUser,
+  RedirectToSignIn,
+  useOrganization,
 } from "@clerk/nextjs";
 import { GetServerSideProps } from "next";
-import { getAuth } from "@clerk/nextjs/server";
-import clerkClient from "@clerk/clerk-sdk-node";
 
 const Dashboard = () => {
   const { isSignedIn, isLoaded, user }: any = useUser();
 
-  return (
-    <header
-      style={{ display: "flex", justifyContent: "space-between", padding: 20 }}
-    >
-      <h1>My App</h1>
+  const { organization, isLoaded: isOrgLoaded }: any = useOrganization();
 
-      <SignedIn>
-        {/* Mount the UserButton component */}
-        <UserButton />
-      </SignedIn>
-      <SignedOut>
-        {/* Signed out users get sign in button */}
-        <SignInButton />
-      </SignedOut>
-    </header>
+  return (
+    // Layout
+    <div className="flex">
+      {/* Sidebar */}
+      <div
+        className="flex flex-col h-screen w-64 border border-gray-200 border-solid"
+        style={{ padding: 16 }}
+      >
+        <div className="flex items-center hover:bg-gray-100 rounded-md transition-all cursor-pointer p-2">
+          <img
+            src={organization.logoUrl}
+            alt="Organization Logo"
+            className="h-8 w-8 rounded-md mr-2"
+          />
+          <h1 className="font-semibold">{organization.name}</h1>
+        </div>
+      </div>
+      <div className="flex flex-col h-screen w-full">
+        {/* Header */}
+        <header
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: 20,
+            width: "100%",
+          }}
+        >
+          <h1>My App</h1>
+
+          <SignedIn>
+            {/* Mount the UserButton component */}
+            <UserButton />
+          </SignedIn>
+          <SignedOut>
+            {/* Signed out users get sign in button */}
+            <RedirectToSignIn />
+          </SignedOut>
+        </header>
+      </div>
+    </div>
   );
 };
 

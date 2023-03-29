@@ -7,7 +7,7 @@ export default function SignUpPage() {
         path="/sign-up"
         routing="path"
         signInUrl="/sign-in"
-        redirectUrl="/dashboard"
+        redirectUrl="/sign-up/organization"
       />
     </div>
   );
