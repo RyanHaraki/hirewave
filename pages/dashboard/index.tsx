@@ -5,7 +5,8 @@ import Header from "@/components/dashboard/Header";
 import { useRouter } from "next/router";
 import JobPreview from "@/components/dashboard/JobPreview";
 import Job from "@/types/Job";
-
+import { Button } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
 const mockJobs: Job[] = [
   {
     id: 1,
@@ -35,14 +36,25 @@ const Dashboard = () => {
     // Layout
 
     <div className="flex flex-col h-screen w-full">
-      {/* Header */}
-      <Header />
-
       {/* Job Section */}
       <div className="flex flex-col items-center h-screen w-full p-12">
         <div className="lg:w-1/2 w-full">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="text-gray-500 mb-12">View your jobs and applicants</p>
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold">Dashboard</h1>
+              <p className="text-gray-500 mb-12">
+                View your jobs and applicants
+              </p>
+            </div>
+
+            <Button
+              onClick={() => router.push("/jobs/create")}
+              rightIcon={<AddIcon />}
+              colorScheme="blue"
+            >
+              Add New Job
+            </Button>
+          </div>
           {/* Render jobs */}
 
           {mockJobs.map((job) => (

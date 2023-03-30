@@ -16,10 +16,9 @@ const Header = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-
         width: "100%",
       }}
-      className="border-b border-gray-300 border-solid px-6 py-3"
+      className="border-b border-gray-300 border-solid px-6 py-3 z-10"
     >
       <div className="flex items-center hover:bg-gray-100 rounded-md transition-all cursor-pointer p-2">
         {isOrgLoaded && (
@@ -34,10 +33,9 @@ const Header = () => {
         )}
       </div>
 
-      <SignedIn>
-        {/* Mount the UserButton component */}
-        <UserButton />
-      </SignedIn>
+      {/* Mount the UserButton component */}
+      <UserButton />
+
       <SignedOut>
         {/* Signed out users get sign in button */}
         <RedirectToSignIn />
