@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import {
   CloudArrowUpIcon,
   LockClosedIcon,
@@ -6,10 +7,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
-import { Dialog } from "@headlessui/react";
-import { useUser, SignInButton } from "@clerk/nextjs";
-
-import { useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
 
 const stats = [
   {

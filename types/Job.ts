@@ -2,7 +2,7 @@ import Applicant from "./Applicant";
 import Organization from "./Organization";
 
 type Job = {
-    id: number;
+    id: string;
     title: string;
     applicants: Applicant[];
     description: string;

@@ -7,9 +7,11 @@ import JobPreview from "@/components/dashboard/JobPreview";
 import Job from "@/types/Job";
 import { Button } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
+import { uuid } from "uuidv4";
+
 const mockJobs: Job[] = [
   {
-    id: 1,
+    id: uuid(),
     title: "Software Engineer",
     applicants: [
       {
