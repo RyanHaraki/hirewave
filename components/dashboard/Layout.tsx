@@ -2,22 +2,22 @@ import React from "react";
 import Header from "./Header";
 import LandingHeader from "../landing/LandingHeader";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { useRouter } from "next/router";
 
 interface LayoutProps {
   children?: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const router = useRouter();
+
   return (
     <>
-      <SignedIn>
-        <Header />
-      </SignedIn>
-      <SignedOut>
-        <LandingHeader />
-      </SignedOut>
+      <div>
+        {router.pathname === "/" ? <LandingHeader /> : <Header />}
 
-      {children}
+        {children}
+      </div>
     </>
   );
 };

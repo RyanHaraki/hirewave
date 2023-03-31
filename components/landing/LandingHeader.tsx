@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import { Dialog } from "@headlessui/react";
+import { useRouter } from "next/router";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+
 const navigation = [
   { name: "Features", href: "/features" },
   { name: "Pricing", href: "/pricing" },
@@ -8,6 +11,7 @@ const navigation = [
 
 const LandingHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -47,12 +51,22 @@ const LandingHeader = () => {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="/sign-in"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          <SignedOut>
+            <a
+              href="/sign-in"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Log in <span aria-hidden="true">&rarr;</span>
+            </a>
+          </SignedOut>
+          <SignedIn>
+            <a
+              href="/dashboard"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Go to Dashboard <span aria-hidden="true">&rarr;</span>
+            </a>
+          </SignedIn>
         </div>
       </nav>
       <Dialog
