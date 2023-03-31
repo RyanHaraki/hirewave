@@ -8,6 +8,7 @@ import Job from "@/types/Job";
 import { Button } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { uuid } from "uuidv4";
+import { SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 
 const mockJobs: Job[] = [
   {
@@ -38,6 +39,9 @@ const Dashboard = () => {
     // Layout
 
     <div className="flex flex-col h-screen w-full">
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
       {/* Job Section */}
       <div className="flex flex-col items-center h-screen w-full p-12">
         <div className="lg:w-1/2 w-full">
